@@ -22,10 +22,11 @@ function HBarray(s3Array, sci, mi, gsi, d){
   var hbArr = [];
 
   for (var i = 0, l = s3Array.length; i < l; i ++) {
-    var hb = HoekBrown(s3Array[i], sci, mi, gsi, d);
+    var s3 = s3Array[i];
+    var s1 = HoekBrown(s3, sci, mi, gsi, d);
 
-    if (!isNaN(hb)) {
-      hbArr.push(hb);
+    if (!isNaN(s1)) {
+      hbArr.push([s3, s1]);
     }
 
   }
