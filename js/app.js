@@ -32,6 +32,9 @@ angular.module('app', [])
           title: {
             text: 'Hoek-Brown failure criterion'
           },
+          tooltip: {
+            pointFormat: '{point.y:.2f}'
+          },
           series: [{
             name: 'HB failure criterion',
             type: 'line',
