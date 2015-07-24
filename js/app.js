@@ -13,9 +13,20 @@ angular.module('app', [])
       var gsi = params.gsi;
       var d = params.d;
       var s3max = params.s3max;
-      params.s = Math.round(param_s(gsi, d) * 1000) / 1000;
-      params.a = Math.round(param_a(gsi) * 1000) / 1000;
-      params.mb = Math.round(param_mb(mi, gsi, d) * 1000) / 1000;
+      var s3n = s3max / sci;
+
+      var s = round(param_s(gsi, d));
+      var a = round(param_a(gsi));
+      var mb = round(param_mb(mi, gsi, d));
+
+      $scope.params.s = s;
+      $scope.params.a = a;
+      $scope.params.mb = mb;
+
+
+      $scope.cohesion =  round(cohesion(sci, a, s, mb, s3n));
+      $scope.friction =  round(friction(sci, a, s, mb, s3n));
+
       $scope.hoekBrown = HBarray(values, sci, mi, gsi, d);
       $scope.mohrCoulomb = MCArray(values, sci, mi, gsi, d, s3max);
     });

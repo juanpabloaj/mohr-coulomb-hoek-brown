@@ -28,11 +28,15 @@
             <label>S3max: </label>
             <input type="number" ng-model="params.s3max" min=0 max=100 step="0.1" required/>
             <label>a: </label>
-            <input type="number" ng-model="params.a" readonly/>
+            <input type="number" ng-model="params.a" min=0 max=1000 readonly/>
             <label>s: </label>
-            <input type="number" ng-model="params.s" readonly/>
+            <input type="number" ng-model="params.s" min=0 max=1000 readonly/>
             <label>mb: </label>
-            <input type="number" ng-model="params.mb" readonly/>
+            <input type="number" ng-model="params.mb" min=0 max=1000 readonly/>
+            <label>C </label>
+            <input type="number" ng-model="cohesion" min=0 max=1000 readonly/>
+            <label>Phi: </label>
+            <input type="number" ng-model="friction" min=0 max=1000 readonly/>
         </div>
     </body>
 </html>

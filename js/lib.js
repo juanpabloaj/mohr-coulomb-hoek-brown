@@ -1,3 +1,7 @@
+function round(num){
+  return(Math.round(num * 1000) / 1000);
+}
+
 function param_mb(mi, gsi, d){
   return(mi * Math.exp((gsi - 100)/(28 - 14*d)));
 }
@@ -35,8 +39,9 @@ function HBarray(s3Array, sci, mi, gsi, d){
 }
 
 function MohrCoulomb(s3, coh, phi){
-  var second = (2 * coh * Math.cos(phi))/(1 - Math.sin(phi));
-  var first = (1 + Math.sin(phi))/(1 - Math.sin(phi));
+  var toDegree = Math.PI / 180;
+  var first = (2 * coh * Math.cos(phi * toDegree))/(1 - Math.sin(phi * toDegree));
+  var second = (1 + Math.sin(phi * toDegree))/(1 - Math.sin(phi * toDegree));
   return (first + second * s3);
 }
 
