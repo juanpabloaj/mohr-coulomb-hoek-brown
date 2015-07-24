@@ -4,7 +4,7 @@ angular.module('app', [])
     var values = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8 , 9, 10];
 
     $scope.params = {
-      sci: 120, mi: 25, gsi:100, d:0.9
+      sci: 30, mi: 10, gsi:50, d:0, s3max: 7.5
     };
 
     $scope.$watchCollection('params', function(params){
@@ -12,7 +12,12 @@ angular.module('app', [])
       var mi = params.mi;
       var gsi = params.gsi;
       var d = params.d;
-      $scope.values = HBarray(values, sci, mi, gsi, d);
+      var s3max = params.s3max;
+      params.s = Math.round(param_s(gsi, d) * 1000) / 1000;
+      params.a = Math.round(param_a(gsi) * 1000) / 1000;
+      params.mb = Math.round(param_mb(mi, gsi, d) * 1000) / 1000;
+      $scope.hoekBrown = HBarray(values, sci, mi, gsi, d);
+      $scope.mohrCoulomb = MCArray(values, sci, mi, gsi, d, s3max);
     });
 
   })
@@ -21,7 +26,8 @@ angular.module('app', [])
       restrict: 'C',
       replace: true,
       scope: {
-        items: '='
+        items: '=',
+        items2: '='
       },
       template: '<div id="container"></div>',
       link: function (scope, element, attrs){
@@ -36,9 +42,13 @@ angular.module('app', [])
             pointFormat: '{point.y:.2f}'
           },
           series: [{
-            name: 'HB failure criterion',
+            name: 'Hoek Brown failure criterion',
             type: 'line',
             data: scope.items
+          }, {
+            name: 'Morh Coulomb failure criterion',
+            type: 'line',
+            data: scope.items2
           }],
           credits: {
             enabled: false
@@ -47,6 +57,9 @@ angular.module('app', [])
 
         scope.$watch('items', function(newValue){
           chart.series[0].setData(newValue, true);
+        }, true);
+        scope.$watch('items2', function(newValue){
+          chart.series[1].setData(newValue, true);
         }, true);
 
       }

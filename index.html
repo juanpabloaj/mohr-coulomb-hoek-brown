@@ -15,7 +15,7 @@
     <body>
         <div ng-controller="HBCtrl">
 
-            <div class="simple-line" items="values"></div>
+            <div class="simple-line" items="hoekBrown" items2="mohrCoulomb"></div>
 
             <label>Sci: </label>
             <input type="number" ng-model="params.sci" min=1 max=300 required/>
@@ -25,6 +25,14 @@
             <input type="number" ng-model="params.gsi" min=1 max=100 required/>
             <label>D: </label>
             <input type="number" ng-model="params.d" min=0 max=1 step="0.1" required/>
+            <label>S3max: </label>
+            <input type="number" ng-model="params.s3max" min=0 max=100 step="0.1" required/>
+            <label>a: </label>
+            <input type="number" ng-model="params.a" readonly/>
+            <label>s: </label>
+            <input type="number" ng-model="params.s" readonly/>
+            <label>mb: </label>
+            <input type="number" ng-model="params.mb" readonly/>
         </div>
     </body>
 </html>
