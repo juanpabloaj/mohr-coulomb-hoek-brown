@@ -59,7 +59,8 @@ angular.module('app', [])
           }, {
             name: 'Morh Coulomb failure criterion',
             type: 'line',
-            data: scope.items2
+            data: scope.items2,
+            visible: false
           }],
           credits: {
             enabled: false
