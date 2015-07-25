@@ -21,9 +21,10 @@
                 <hr>
                 <h4>Hoek-Brown Classification</h4>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label">&sigma;ci:</label>
-                  <div class="col-sm-10">
+                  <label class="col-sm-3 control-label">&sigma;ci:</label>
+                  <div class="col-sm-8 input-group">
                     <input class="form-control" type="number" ng-model="params.sci" min=1 max=300 required/>
+                    <div class="input-group-addon">MPa</div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -67,23 +68,26 @@
                 <hr>
                 <h4>Failure Envelope range</h4>
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">&sigma;3max:</label>
-                  <div class="col-sm-9">
+                  <label class="col-sm-4 control-label">&sigma;3max:</label>
+                  <div class="col-sm-8 input-group">
                     <input class="form-control" type="number" ng-model="params.s3max" min=0 max=100 step="0.1" required/>
+                    <div class="input-group-addon">MPa</div>
                   </div>
                 </div>
                 <hr>
                 <h4>Mohr-Coulomb fit</h4>
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Cohesion</label>
-                  <div class="col-sm-9">
+                  <label class="col-sm-4 control-label">Cohesion</label>
+                  <div class="col-sm-8 input-group">
                     <input class="form-control" type="number" ng-model="cohesion" min=0 max=1000 readonly/>
+                    <div class="input-group-addon">MPa</div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Friction:</label>
-                  <div class="col-sm-9">
+                  <label class="col-sm-4 control-label">Friction:</label>
+                  <div class="col-sm-8 input-group">
                     <input class="form-control" type="number" ng-model="friction" min=0 max=1000 readonly/>
+                    <div class="input-group-addon">Deg</div>
                   </div>
                 </div>
               </form>

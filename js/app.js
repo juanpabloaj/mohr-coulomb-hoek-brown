@@ -51,12 +51,12 @@ angular.module('app', [])
           },
           yAxis: {
             title: {
-              text: 'Major principal stress \u03C31'
+              text: 'Major principal stress \u03C31 [MPa]'
             },
           },
           xAxis: {
             title: {
-              text: 'Minor principal stress \u03C33'
+              text: 'Minor principal stress \u03C33 [MPa]'
             },
           },
           tooltip: {
