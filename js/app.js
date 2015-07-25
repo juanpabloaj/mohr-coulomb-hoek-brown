@@ -49,6 +49,16 @@ angular.module('app', [])
           title: {
             text: 'Hoek-Brown failure criterion'
           },
+          yAxis: {
+            title: {
+              text: 'Major principal stress \u03C31'
+            },
+          },
+          xAxis: {
+            title: {
+              text: 'Minor principal stress \u03C33'
+            },
+          },
           tooltip: {
             pointFormat: '{point.y:.2f}'
           },
