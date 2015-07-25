@@ -8,35 +8,91 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="./js/lib.js" type="text/javascript" charset="utf-8"></script>
         <script src="./js/app.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
         <title></title>
 
     </head>
     <body>
-        <div ng-controller="HBCtrl">
+        <div ng-controller="HBCtrl" class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <form class="form-horizontal">
+                <hr>
+                <h4>Hoek-Brown Classification</h4>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">&sigma;ci:</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="number" ng-model="params.sci" min=1 max=300 required/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">mi:</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="number" ng-model="params.mi" min=1 max=50 required/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">GSI:</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="number" ng-model="params.gsi" min=1 max=100 required/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">D:</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="number" ng-model="params.d" min=0 max=1 step="0.1" required/>
+                  </div>
+                </div>
+                <hr>
+                <h4>Hoek-Brown Criterion</h4>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">a:</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="number" ng-model="params.a" min=0 max=1000 readonly/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">s:</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="number" ng-model="params.s" min=0 max=1000 readonly/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">mb:</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="number" ng-model="params.mb" min=0 max=1000 readonly/>
+                  </div>
+                </div>
+                <hr>
+                <h4>Failure Envelope range</h4>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">&sigma;3max:</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" type="number" ng-model="params.s3max" min=0 max=100 step="0.1" required/>
+                  </div>
+                </div>
+                <hr>
+                <h4>Mohr-Coulomb fit</h4>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Cohesion</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" type="number" ng-model="cohesion" min=0 max=1000 readonly/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Friction:</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" type="number" ng-model="friction" min=0 max=1000 readonly/>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-8">
+              <div class="simple-line" items="hoekBrown" items2="mohrCoulomb"></div>
+            </div>
+          </div>
 
-            <div class="simple-line" items="hoekBrown" items2="mohrCoulomb"></div>
-
-            <label>&sigma;ci: </label>
-            <input type="number" ng-model="params.sci" min=1 max=300 required/>
-            <label>mi: </label>
-            <input type="number" ng-model="params.mi" min=1 max=50 required/>
-            <label>GSI: </label>
-            <input type="number" ng-model="params.gsi" min=1 max=100 required/>
-            <label>D: </label>
-            <input type="number" ng-model="params.d" min=0 max=1 step="0.1" required/>
-            <label>&sigma;3max: </label>
-            <input type="number" ng-model="params.s3max" min=0 max=100 step="0.1" required/>
-            <label>a: </label>
-            <input type="number" ng-model="params.a" min=0 max=1000 readonly/>
-            <label>s: </label>
-            <input type="number" ng-model="params.s" min=0 max=1000 readonly/>
-            <label>mb: </label>
-            <input type="number" ng-model="params.mb" min=0 max=1000 readonly/>
-            <label>C </label>
-            <input type="number" ng-model="cohesion" min=0 max=1000 readonly/>
-            <label>Phi: </label>
-            <input type="number" ng-model="friction" min=0 max=1000 readonly/>
         </div>
     </body>
 </html>
